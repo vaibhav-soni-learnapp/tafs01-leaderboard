@@ -14,9 +14,6 @@ from gsheetsdb import connect
 st.set_page_config(page_title="LearnApp", page_icon="favicon.png")
 
 
-[theme]
-base="light"
-font="monospace"
 
 # hide streamlit branding and hamburger menu
 hide_streamlit_style = """
