@@ -56,7 +56,7 @@ def create_hyperlink(row):
 
 st.write("----")
 
-cohort_name = st.selectbox("Select the cohort", ["lotfs-01"])
+cohort_name = st.selectbox("Select the cohort", ["tafs-01"])
 st.write("")
 
 if st.button("Generate Leaderboard"):
@@ -71,17 +71,17 @@ if st.button("Generate Leaderboard"):
             
 
             
-    df = pd.DataFrame(rows)[["RANK","LOTFS_USER_ID", "LOTFS_NAME", "LOTFS_SCORE","Google_Classroom_Status"]]
+    df = pd.DataFrame(rows)[["RANK","TAFS01_USER_ID", "TAFS01_NAME", "TAFS01_SCORE"]]
     df["RANK"] = df["RANK"].astype(int) # convert the data type of the column to integer
-    #df.set_index("LOTFS_USER_ID", inplace=True)
-    df["Google_Classroom_Status"] = df.apply(create_hyperlink, axis=1)
+    #df.set_index("TAFS01_USER_ID", inplace=True)
+#     df["Google_Classroom_Status"] = df.apply(create_hyperlink, axis=1)
 
     #st.dataframe(df, escape_html=False)
     st.write("")
     st.write("")
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
-    #st.dataframe(df)
-    df = df.to_html(escape=False)
-    st.write(df, unsafe_allow_html=True)
+    st.dataframe(df)
+#     df = df.to_html(escape=False)
+#     st.write(df, unsafe_allow_html=True)
     #st.dataframe(df, unsafe_allow_html=True)
  
